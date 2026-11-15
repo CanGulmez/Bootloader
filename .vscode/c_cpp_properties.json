@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Bootloader",
+            "compilerPath": "/usr/bin/arm-none-eabi-gcc",
+            "intelliSenseMode": "gcc-arm",
+            "cStandard": "gnu17",
+            "includePath": [
+                "${workspaceFolder}/src",
+                "${workspaceFolder}/drivers/CMSIS/Include",
+                "${workspaceFolder}/drivers/CMSIS/Device/ST/STM32F4xx/Include",
+                "${workspaceFolder}/drivers/STM32F4xx_HAL_Driver/Inc"
+            ],
+			"defines": [
+				"STM32F4xx",
+				"STM32F446xx",
+				"STM32F446RETx",
+				"USE_HAL_DRIVER"
+			]
+        }
+    ],
+    "version": 4
+}

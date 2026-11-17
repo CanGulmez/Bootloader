@@ -1,5 +1,18 @@
 /**
- * Dummy syscall implementations of the firmware.
+ ******************************************************************************
+ * @file 	main.c
+ * @author 	Can Gulmez
+ * @brief 	The dumpy syscall implementations of the bootloader
+ * 
+ ******************************************************************************
+ * @attention
+ * 
+ * Copyright (c) 2026 Can Gulmez.
+ * All rights reserved.
+ * 
+ * This software is licensed under the MIT License.
+ * 
+ ******************************************************************************
  */
 
 #include "main.h"

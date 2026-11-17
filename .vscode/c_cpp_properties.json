@@ -4,7 +4,7 @@
             "name": "Bootloader",
             "compilerPath": "/usr/bin/arm-none-eabi-gcc",
             "intelliSenseMode": "gcc-arm",
-            "cStandard": "gnu17",
+            "cStandard": "gnu23",
             "includePath": [
                 "${workspaceFolder}/src",
                 "${workspaceFolder}/drivers/CMSIS/Include",

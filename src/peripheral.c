@@ -1,5 +1,18 @@
 /**
- * Peripheral initializations of the firmware.
+ ******************************************************************************
+ * @file 	main.c
+ * @author 	Can Gulmez
+ * @brief 	The peripheral implementation of the bootloader
+ * 
+ ******************************************************************************
+ * @attention
+ * 
+ * Copyright (c) 2026 Can Gulmez.
+ * All rights reserved.
+ * 
+ * This software is licensed under the MIT License.
+ * 
+ ******************************************************************************
  */
 
 #include "main.h"
@@ -48,4 +61,3 @@ void config_debug(void)
 	husart2.Init.WordLength = UART_WORDLENGTH_8B;
 	HAL_UART_Init(&husart2);
 }
- 

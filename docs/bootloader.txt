@@ -1,0 +1,168 @@
+BOOTLOADER FOR STM32F446REX
+---------------------------
+
+At its core, a bootloader is a small program that runs automatically
+when a microcontroller powers on or resets. Its primary job is to
+prepare the system and then load and execute the main application.
+
+The main reasons we use bootloaders are:
+
++ Fimware Updates: It allows you to update your device's firmware 
+  'In Application Programming (IAP)'. This means you can ship a
+  product  and later update its code in the field via USB, USART,
+  CAN, or even wireless (OTA), without needing a physical programmer
+  like an ST-Link.
++ Recovery: If a firmware update is interrupted or the new application
+  is corrupted, the bootloader can be defined to detect this and then
+  remain in recovery mode to re-flash a valid application.
++ Flexibility: It can used to select between multiple applications,
+  perform hardware checks, or decrypt firmware before running it.
+
+STM32 microcontrollers come with a built-in bootloader:
+
++ It resides in a dedicated, read-only 'System Memory', separate from
+  the main flash memory.
++ Its main function is to download a new application binary onto the
+  main flash memory via a serial peripheral like USART, USB, or so on.
+
+In bare-metal/RTOD application, the bootloader simply jumps to the 
+application's reset handler. The critical step is ensuring the 
+application's 'interrupt vector table' is correctly relocated.
+
+The STM32F446RE has 512 KB of flash and 128 KB of RAM. Its flash is
+organized into 7 sectors of varying sizes which is crucial for your 
+bootloader design.
+
+Sector			Size		Start Address
+------			----		-------------
+  0				16 KB		0x0800 0000
+  1				16 KB		0x0800 4000
+  2				16 KB		0x0800 8000
+  3				16 KB		0x0800 C000
+  4				16 KB		0x0801 0000
+  5				128 KB		0x0802 0000
+  6				128 KB		0x0804 0000
+  7				128 KB		0x0806 0000
+
+A common choise is to place the bootloader in Sector 0 and start the
+application at Sector 1 (0x0800 4000).
+
+Bootloader region: 0x0800 0000 to 0x0800 3FF (16 KB)
+Application region: 0x0800 4000 to 0x0807 3FFF (496 KB)
+
+You must build the bootloader and the application as two separate
+projects, each with its own linker script that reflects this memory 
+layout. Set the FLASH origin to 0x08000000 and length to 16K for 
+bootloader linker script. Set the FLASH origin to 0x08004000 and 
+length to 496K.
+
+Your bootloader needs to erase and program the application's Flash
+region. This is done via the Flash Controller registers (FLASH->CR,
+FLASH->SR, etc.).
+
+The sequence for an erase operation is:
+
+1. Check that the BSY bit in FLASH_SR is clear (Flash is not busy).
+2. Set the SER bit in FLASH_CR for section erase.
+3. Select the section number in the SNB bits of FLASH_CR.
+4. Set the STRT bit in FLASH_CR to begin the erase.
+5. Wait for the BSY bit to clear.
+
+For a programming operation:
+
+1. Check that the BSY bit is clear.
+2. Set the PG bit in FLASH_CR to enable programming.
+3. Perform the write to the desired flash address (e.g.,
+   *(volatile uint32_t *)address = data).
+4. Wait for the BSY bit to clear.
+
+The easiest way to implement this is with HAL library:
+
++ Erase: HAL_FLASHEx_Erase()
++ Program: HAL_FLASH_Program()
+
+You must unlock the flask (HAL_FLASH_Unlock()) before erase/program
+and lock it (HAL_FLASH_Lock()) afterward.
+
+To transfer control from the bootloader to the application, you must
+follow a precise sequence:
+
+1. Verify the application: Before jumping, it is good practice to 
+   check that the application's initial stack pointer points to a
+   valid RAM location.
+2. Disable interrupts: Call __disable_irq() to prevent any inteerupt
+   from firing during the transitions.
+3. Set the Vector Table Offset Register (VTOL): You must tell the
+   Cortex-M core that the vector table is no longer at its default 
+   location. Set it to the application's start address:
+
+   SCB->VTOR = APP_ADDRESS; // e.g., 0x0800 4000
+
+4. Set the Main Stack Pointer (MSP): Read the first word of the
+   application's vector table (the initiali stack pointer value) and
+   load it into the MSP:
+
+   __set_MSP(*(volatile uint32_t *)APP_ADDRESS);
+
+5. Jump to the Reset Handler: Read the second word of the vector table
+   (the address of the application's Reset_Handler) and create a 
+   function pointer to it, then call it:
+
+   uint32_t reset_addr = *(volatile uint32_t *)(APP_ADDRESS + 4);
+   void (*reset_handler)(void) = (void (*)(void))reset_addr;
+   reset_handler();
+
+Your application code must be aware that it's not starting at the
+default address. As long as you've set SCB->VTOR in the bootloader
+before jumping, the application should run correctly. Some startup
+files use a VECT_TAB_OFFSET macro that you also need to set to match
+your application's offset.
+
+---------------------------------------------------------------------
+
+After a reset, the Flash is proctected against accidental writes, and
+the LOCK bit in the FLASH_CR is set to 1. Attempts to modify the 
+Flash while locked will be ignored.
+
+Once your erase and program operations are complete, it is critical
+that you lock the Flash again to protect your firmware from corruption.
+
+HAL_FLASH_Unlock/Lock() can be used.
+
+To erase the sectors:
+
+	FLASH_EraseInitTypeDef eraseInit;
+	uint32_t error = 0;
+
+	eraseInit.TypeErase = FLASH_TYPEERASE_SECTORS;
+	eraseInit.Sector = FLASH_SECTOR_1;
+	eraseInit.NbSectors = 1;
+	eraseInit.VoltageRange = FLASH_VOLTAGE_RANGE_3; /* 2.7V - 3.3V */
+
+	if (HAL_FLASHEx_Erase(&erase, &error) != HAL_OK)
+	{
+		/* ... */
+	}
+
+Above code block handles the entire erasing sequence.
+
+After erasing, you can program the Flash. Below code block can be used:
+
+	uint32_t data = 0xDEADBELF;
+	uint32_t address = 0x0800 4000; /* application address */
+
+	if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_BYTE, address, data) !=
+		HAL_OK)
+	{
+		/* ... */
+	}
+
+Specifically, Cortex-M CPU needs two things to be correctly initialized
+before it executes a single instruction from the application.
+
+1. The Main Stack Pointer (MSP)
+2. The Vector Table Offset Register (VTOR)
+
+Your application's linker script must be updated to reflect its new
+starting address. Also in system_*.c, SystemInit() should be set as
+VTOR to the application start address.

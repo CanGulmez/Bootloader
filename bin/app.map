@@ -1119,7 +1119,7 @@ Discarded input sections
                 0x00000000       0x58 syscalls.o
  .debug_rnglists
                 0x00000000       0x3d syscalls.o
- .debug_macro   0x00000000      0x666 syscalls.o
+ .debug_macro   0x00000000      0x66c syscalls.o
  .debug_macro   0x00000000      0xaf0 syscalls.o
  .debug_macro   0x00000000       0x22 syscalls.o
  .debug_macro   0x00000000       0x60 syscalls.o
@@ -1248,8 +1248,8 @@ Discarded input sections
  .debug_macro   0x00000000      0x1f7 syscalls.o
  .debug_macro   0x00000000      0x126 syscalls.o
  .debug_macro   0x00000000       0x28 syscalls.o
- .debug_line    0x00000000      0xbdb syscalls.o
- .debug_str     0x00000000   0x107907 syscalls.o
+ .debug_line    0x00000000      0xbdf syscalls.o
+ .debug_str     0x00000000   0x10790f syscalls.o
  .comment       0x00000000       0x27 syscalls.o
  .debug_frame   0x00000000       0x90 syscalls.o
  .ARM.attributes
@@ -1887,77 +1887,77 @@ LOAD /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/crtn.o
 .iplt           0x080062ec        0x0
  .iplt          0x080062ec        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.rodata         0x080062ec       0xb0
+.rodata         0x080062ec       0xcc
                 0x080062ec                        . = ALIGN (0x4)
  *(.rodata)
  *(.rodata*)
  .rodata.main.str1.1
-                0x080062ec       0x5b main.o
+                0x080062ec       0x77 main.o
  .rodata.APBPrescTable
-                0x08006347        0x8 lib/libapp.a(app_system.o)
-                0x08006347                APBPrescTable
+                0x08006363        0x8 lib/libapp.a(app_system.o)
+                0x08006363                APBPrescTable
  .rodata.AHBPrescTable
-                0x0800634f       0x10 lib/libapp.a(app_system.o)
-                0x0800634f                AHBPrescTable
- *fill*         0x0800635f        0x1 
+                0x0800636b       0x10 lib/libapp.a(app_system.o)
+                0x0800636b                AHBPrescTable
+ *fill*         0x0800637b        0x1 
  .rodata.str1.4
-                0x08006360       0x39 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-svfprintf.o)
+                0x0800637c       0x39 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-svfprintf.o)
                                  0x13 (size before relaxing)
  .rodata.str1.4
-                0x08006399        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
+                0x080063b5        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
                                  0x25 (size before relaxing)
-                0x0800639c                        . = ALIGN (0x4)
- *fill*         0x08006399        0x3 
+                0x080063b8                        . = ALIGN (0x4)
+ *fill*         0x080063b5        0x3 
 
-.ARM.extab      0x0800639c        0x0
-                0x0800639c                        . = ALIGN (0x4)
+.ARM.extab      0x080063b8        0x0
+                0x080063b8                        . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0800639c                        . = ALIGN (0x4)
+                0x080063b8                        . = ALIGN (0x4)
 
-.ARM            0x0800639c        0x8
-                0x0800639c                        . = ALIGN (0x4)
-                0x0800639c                        __exidx_start = .
+.ARM            0x080063b8        0x8
+                0x080063b8                        . = ALIGN (0x4)
+                0x080063b8                        __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x0800639c        0x8 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
- .ARM.exidx     0x080063a4        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-strlen.o)
+ .ARM.exidx     0x080063b8        0x8 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
+ .ARM.exidx     0x080063c0        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-strlen.o)
                                   0x8 (size before relaxing)
- .ARM.exidx     0x080063a4        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memchr.o)
+ .ARM.exidx     0x080063c0        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memchr.o)
                                   0x8 (size before relaxing)
- .ARM.exidx     0x080063a4        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memcpy.o)
+ .ARM.exidx     0x080063c0        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memcpy.o)
                                   0x8 (size before relaxing)
-                0x080063a4                        __exidx_end = .
-                0x080063a4                        . = ALIGN (0x4)
+                0x080063c0                        __exidx_end = .
+                0x080063c0                        . = ALIGN (0x4)
 
-.rel.dyn        0x080063a4        0x0
- .rel.iplt      0x080063a4        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+.rel.dyn        0x080063c0        0x0
+ .rel.iplt      0x080063c0        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.preinit_array  0x080063a4        0x0
-                0x080063a4                        . = ALIGN (0x4)
-                0x080063a4                        PROVIDE (__preinit_array_start = .)
+.preinit_array  0x080063c0        0x0
+                0x080063c0                        . = ALIGN (0x4)
+                0x080063c0                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x080063a4                        PROVIDE (__preinit_array_end = .)
-                0x080063a4                        . = ALIGN (0x4)
+                0x080063c0                        PROVIDE (__preinit_array_end = .)
+                0x080063c0                        . = ALIGN (0x4)
 
-.init_array     0x080063a4        0x4
-                0x080063a4                        . = ALIGN (0x4)
-                0x080063a4                        PROVIDE (__init_array_start = .)
+.init_array     0x080063c0        0x4
+                0x080063c0                        . = ALIGN (0x4)
+                0x080063c0                        PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x080063a4        0x4 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x080063a8                        PROVIDE (__init_array_end = .)
-                0x080063a8                        . = ALIGN (0x4)
+ .init_array    0x080063c0        0x4 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x080063c4                        PROVIDE (__init_array_end = .)
+                0x080063c4                        . = ALIGN (0x4)
 
-.fini_array     0x080063a8        0x4
-                0x080063a8                        . = ALIGN (0x4)
-                0x080063a8                        PROVIDE (__fini_array_start = .)
+.fini_array     0x080063c4        0x4
+                0x080063c4                        . = ALIGN (0x4)
+                0x080063c4                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x080063a8        0x4 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x080063ac                        PROVIDE (__fini_array_end = .)
-                0x080063ac                        . = ALIGN (0x4)
-                0x080063ac                        _sidata = LOADADDR (.data)
+ .fini_array    0x080063c4        0x4 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x080063c8                        PROVIDE (__fini_array_end = .)
+                0x080063c8                        . = ALIGN (0x4)
+                0x080063c8                        _sidata = LOADADDR (.data)
 
-.data           0x20000000       0x5c load address 0x080063ac
+.data           0x20000000       0x5c load address 0x080063c8
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sdata = .
  *(.data)
@@ -1981,17 +1981,17 @@ LOAD /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/crtn.o
                 0x2000005c                        _edata = .
 
 .tm_clone_table
-                0x2000005c        0x0 load address 0x08006408
+                0x2000005c        0x0 load address 0x08006424
  .tm_clone_table
                 0x2000005c        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/crtbegin.o
  .tm_clone_table
                 0x2000005c        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/crtend.o
 
-.igot.plt       0x2000005c        0x0 load address 0x08006408
+.igot.plt       0x2000005c        0x0 load address 0x08006424
  .igot.plt      0x2000005c        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/crtbegin.o
                 0x2000005c                        . = ALIGN (0x4)
 
-.bss            0x2000005c      0x214 load address 0x08006408
+.bss            0x2000005c      0x214 load address 0x08006424
                 0x2000005c                        _sbss = .
                 0x2000005c                        __bss_start__ = _sbss
  *(.bss)
@@ -2023,7 +2023,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/crtn.o
                 0x20000270                        __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x20000270      0x600 load address 0x08006408
+                0x20000270      0x600 load address 0x08006424
                 0x20000270                        . = ALIGN (0x8)
                 0x20000270                        PROVIDE (end = .)
                 [!provide]                        PROVIDE (_end = .)
@@ -2316,7 +2316,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/libgcc.a
  .debug_aranges
                 0x00000300       0x20 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(sbrk.o)
 
-.debug_line     0x00000000     0x5855
+.debug_line     0x00000000     0x5857
  .debug_line    0x00000000      0x11e /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-init.o)
  .debug_line    0x0000011e      0x4fc /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
  .debug_line    0x0000061a      0x446 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
@@ -2325,74 +2325,74 @@ LOAD /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/libgcc.a
  .debug_line    0x00000f9e      0x153 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mlock.o)
  .debug_line    0x000010f1       0xe7 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-impure.o)
  .debug_line    0x000011d8      0x193 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-sbrkr.o)
- .debug_line    0x0000136b      0xb27 it.o
- .debug_line    0x00001e92      0xb8f main.o
- .debug_line    0x00002a21      0xc0d peripheral.o
- .debug_line    0x0000362e       0x4e /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
- .debug_line    0x0000367c      0x5d9 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
- .debug_line    0x00003c55       0x4a /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/libgcc.a(_dvmd_tls.o)
- .debug_line    0x00003c9f      0x354 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-snprintf.o)
- .debug_line    0x00003ff3      0x84c /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-svfprintf.o)
- .debug_line    0x0000483f      0x24d /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memmove.o)
- .debug_line    0x00004a8c       0x86 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-strlen.o)
- .debug_line    0x00004b12      0x1f8 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-reallocr.o)
- .debug_line    0x00004d0a       0xb9 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-strcpy.o)
- .debug_line    0x00004dc3       0x84 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memchr.o)
- .debug_line    0x00004e47       0xb9 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memcpy.o)
- .debug_line    0x00004f00      0x769 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
- .debug_line    0x00005669      0x176 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-msizer.o)
- .debug_line    0x000057df       0x76 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(sbrk.o)
+ .debug_line    0x0000136b      0xb29 it.o
+ .debug_line    0x00001e94      0xb8f main.o
+ .debug_line    0x00002a23      0xc0d peripheral.o
+ .debug_line    0x00003630       0x4e /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
+ .debug_line    0x0000367e      0x5d9 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_line    0x00003c57       0x4a /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/libgcc.a(_dvmd_tls.o)
+ .debug_line    0x00003ca1      0x354 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-snprintf.o)
+ .debug_line    0x00003ff5      0x84c /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-svfprintf.o)
+ .debug_line    0x00004841      0x24d /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memmove.o)
+ .debug_line    0x00004a8e       0x86 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-strlen.o)
+ .debug_line    0x00004b14      0x1f8 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-reallocr.o)
+ .debug_line    0x00004d0c       0xb9 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-strcpy.o)
+ .debug_line    0x00004dc5       0x84 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memchr.o)
+ .debug_line    0x00004e49       0xb9 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memcpy.o)
+ .debug_line    0x00004f02      0x769 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
+ .debug_line    0x0000566b      0x176 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-msizer.o)
+ .debug_line    0x000057e1       0x76 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(sbrk.o)
 
-.debug_str      0x00000000   0x108e30
- .debug_str     0x00000000   0x108e30 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-init.o)
+.debug_str      0x00000000   0x108e38
+ .debug_str     0x00000000   0x108e38 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-init.o)
                                 0x1fa (size before relaxing)
- .debug_str     0x00108e30        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
+ .debug_str     0x00108e38        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
                                 0x6bf (size before relaxing)
- .debug_str     0x00108e30        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
+ .debug_str     0x00108e38        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
                                 0x59d (size before relaxing)
- .debug_str     0x00108e30        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-freer.o)
+ .debug_str     0x00108e38        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-freer.o)
                                 0x53c (size before relaxing)
- .debug_str     0x00108e30        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-reent.o)
+ .debug_str     0x00108e38        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-reent.o)
                                 0x4db (size before relaxing)
- .debug_str     0x00108e30        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mlock.o)
+ .debug_str     0x00108e38        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mlock.o)
                                 0x4da (size before relaxing)
- .debug_str     0x00108e30        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-impure.o)
+ .debug_str     0x00108e38        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-impure.o)
                                 0x4bc (size before relaxing)
- .debug_str     0x00108e30        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-sbrkr.o)
+ .debug_str     0x00108e38        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-sbrkr.o)
                                 0x4c5 (size before relaxing)
- .debug_str     0x00108e30        0x0 it.o
-                             0x10778b (size before relaxing)
- .debug_str     0x00108e30        0x0 main.o
-                             0x107ca8 (size before relaxing)
- .debug_str     0x00108e30        0x0 peripheral.o
-                             0x107ef7 (size before relaxing)
- .debug_str     0x00108e30        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
+ .debug_str     0x00108e38        0x0 it.o
+                             0x107793 (size before relaxing)
+ .debug_str     0x00108e38        0x0 main.o
+                             0x107cb0 (size before relaxing)
+ .debug_str     0x00108e38        0x0 peripheral.o
+                             0x107eff (size before relaxing)
+ .debug_str     0x00108e38        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
                                  0xa3 (size before relaxing)
- .debug_str     0x00108e30        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_str     0x00108e38        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
                                 0x685 (size before relaxing)
- .debug_str     0x00108e30        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/libgcc.a(_dvmd_tls.o)
+ .debug_str     0x00108e38        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/libgcc.a(_dvmd_tls.o)
                                  0xc3 (size before relaxing)
- .debug_str     0x00108e30        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-snprintf.o)
+ .debug_str     0x00108e38        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-snprintf.o)
                                 0x50a (size before relaxing)
- .debug_str     0x00108e30        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-svfprintf.o)
+ .debug_str     0x00108e38        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-svfprintf.o)
                                 0x805 (size before relaxing)
- .debug_str     0x00108e30        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memmove.o)
+ .debug_str     0x00108e38        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memmove.o)
                                 0x1cc (size before relaxing)
- .debug_str     0x00108e30        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-strlen.o)
+ .debug_str     0x00108e38        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-strlen.o)
                                  0xae (size before relaxing)
- .debug_str     0x00108e30        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-reallocr.o)
+ .debug_str     0x00108e38        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-reallocr.o)
                                 0x532 (size before relaxing)
- .debug_str     0x00108e30        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-strcpy.o)
+ .debug_str     0x00108e38        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-strcpy.o)
                                 0x197 (size before relaxing)
- .debug_str     0x00108e30        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memchr.o)
+ .debug_str     0x00108e38        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memchr.o)
                                  0xa1 (size before relaxing)
- .debug_str     0x00108e30        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memcpy.o)
+ .debug_str     0x00108e38        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memcpy.o)
                                  0xaf (size before relaxing)
- .debug_str     0x00108e30        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
+ .debug_str     0x00108e38        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
                                 0x79b (size before relaxing)
- .debug_str     0x00108e30        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-msizer.o)
+ .debug_str     0x00108e38        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-msizer.o)
                                 0x505 (size before relaxing)
- .debug_str     0x00108e30        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(sbrk.o)
+ .debug_str     0x00108e38        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(sbrk.o)
                                 0x11d (size before relaxing)
 
 .debug_frame    0x00000000      0x65c
@@ -2443,138 +2443,138 @@ LOAD /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard/libgcc.a
  .debug_rnglists
                 0x000001fb       0x61 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-nano-vfprintf_i.o)
 
-.debug_macro    0x00000000    0x28550
- .debug_macro   0x00000000      0x666 it.o
- .debug_macro   0x00000666      0xaf0 it.o
- .debug_macro   0x00001156       0x22 it.o
- .debug_macro   0x00001178       0x60 it.o
- .debug_macro   0x000011d8       0x2a it.o
- .debug_macro   0x00001202       0x94 it.o
- .debug_macro   0x00001296       0x3c it.o
- .debug_macro   0x000012d2       0x34 it.o
- .debug_macro   0x00001306       0x16 it.o
- .debug_macro   0x0000131c       0x57 it.o
- .debug_macro   0x00001373       0x9e it.o
- .debug_macro   0x00001411      0x364 it.o
- .debug_macro   0x00001775      0x127 it.o
- .debug_macro   0x0000189c       0x10 it.o
- .debug_macro   0x000018ac       0x16 it.o
- .debug_macro   0x000018c2       0x58 it.o
- .debug_macro   0x0000191a       0x34 it.o
- .debug_macro   0x0000194e       0x10 it.o
- .debug_macro   0x0000195e       0x52 it.o
- .debug_macro   0x000019b0      0x1de it.o
- .debug_macro   0x00001b8e       0x16 it.o
- .debug_macro   0x00001ba4       0x16 it.o
- .debug_macro   0x00001bba      0x170 it.o
- .debug_macro   0x00001d2a       0x16 it.o
- .debug_macro   0x00001d40       0x4a it.o
- .debug_macro   0x00001d8a       0x16 it.o
- .debug_macro   0x00001da0       0x29 it.o
- .debug_macro   0x00001dc9      0x523 it.o
- .debug_macro   0x000022ec       0x16 it.o
- .debug_macro   0x00002302       0x16 it.o
- .debug_macro   0x00002318       0x10 it.o
- .debug_macro   0x00002328       0x6a it.o
- .debug_macro   0x00002392       0x1c it.o
- .debug_macro   0x000023ae       0x52 it.o
- .debug_macro   0x00002400       0x22 it.o
- .debug_macro   0x00002422       0x10 it.o
- .debug_macro   0x00002432       0x52 it.o
- .debug_macro   0x00002484       0xc1 it.o
- .debug_macro   0x00002545       0x1c it.o
- .debug_macro   0x00002561       0x3d it.o
- .debug_macro   0x0000259e      0x52f it.o
- .debug_macro   0x00002acd      0x19b it.o
- .debug_macro   0x00002c68      0x11f it.o
- .debug_macro   0x00002d87      0x24c it.o
- .debug_macro   0x00002fd3       0x16 it.o
- .debug_macro   0x00002fe9       0x10 it.o
- .debug_macro   0x00002ff9       0x47 it.o
- .debug_macro   0x00003040      0x134 it.o
- .debug_macro   0x00003174       0x10 it.o
- .debug_macro   0x00003184      0x190 it.o
- .debug_macro   0x00003314       0x16 it.o
- .debug_macro   0x0000332a      0x3b5 it.o
- .debug_macro   0x000036df       0x2e it.o
- .debug_macro   0x0000370d       0x28 it.o
- .debug_macro   0x00003735       0x1c it.o
- .debug_macro   0x00003751       0x22 it.o
- .debug_macro   0x00003773       0xfb it.o
- .debug_macro   0x0000386e     0x1011 it.o
- .debug_macro   0x0000487f      0x11f it.o
- .debug_macro   0x0000499e    0x16749 it.o
- .debug_macro   0x0001b0e7       0x6d it.o
- .debug_macro   0x0001b154     0x369a it.o
- .debug_macro   0x0001e7ee       0x56 it.o
- .debug_macro   0x0001e844      0xca5 it.o
- .debug_macro   0x0001f4e9      0x9e9 it.o
- .debug_macro   0x0001fed2      0x115 it.o
- .debug_macro   0x0001ffe7      0x1a0 it.o
- .debug_macro   0x00020187       0xa5 it.o
- .debug_macro   0x0002022c      0x16d it.o
- .debug_macro   0x00020399      0x287 it.o
- .debug_macro   0x00020620       0x5f it.o
- .debug_macro   0x0002067f      0x236 it.o
- .debug_macro   0x000208b5      0xb5b it.o
- .debug_macro   0x00021410      0x38b it.o
- .debug_macro   0x0002179b      0x17d it.o
- .debug_macro   0x00021918       0xf9 it.o
- .debug_macro   0x00021a11      0x40f it.o
- .debug_macro   0x00021e20       0x22 it.o
- .debug_macro   0x00021e42      0x122 it.o
- .debug_macro   0x00021f64       0xa6 it.o
- .debug_macro   0x0002200a       0x7b it.o
- .debug_macro   0x00022085      0x1d2 it.o
- .debug_macro   0x00022257      0x132 it.o
- .debug_macro   0x00022389      0x29c it.o
- .debug_macro   0x00022625       0x2e it.o
- .debug_macro   0x00022653      0x51d it.o
- .debug_macro   0x00022b70       0x88 it.o
- .debug_macro   0x00022bf8       0xe3 it.o
- .debug_macro   0x00022cdb       0x11 it.o
- .debug_macro   0x00022cec      0x1b5 it.o
- .debug_macro   0x00022ea1       0x22 it.o
- .debug_macro   0x00022ec3       0xd6 it.o
- .debug_macro   0x00022f99      0x279 it.o
- .debug_macro   0x00023212      0x1b5 it.o
- .debug_macro   0x000233c7       0x4a it.o
- .debug_macro   0x00023411       0x78 it.o
- .debug_macro   0x00023489      0x127 it.o
- .debug_macro   0x000235b0       0xe8 it.o
- .debug_macro   0x00023698       0x89 it.o
- .debug_macro   0x00023721      0x30c it.o
- .debug_macro   0x00023a2d      0x44b it.o
- .debug_macro   0x00023e78       0xeb it.o
- .debug_macro   0x00023f63      0x383 it.o
- .debug_macro   0x000242e6       0x28 it.o
- .debug_macro   0x0002430e       0xc8 it.o
- .debug_macro   0x000243d6      0x822 it.o
- .debug_macro   0x00024bf8      0x1d5 it.o
- .debug_macro   0x00024dcd      0x225 it.o
- .debug_macro   0x00024ff2      0x8ed it.o
- .debug_macro   0x000258df       0x53 it.o
- .debug_macro   0x00025932      0x2aa it.o
- .debug_macro   0x00025bdc      0x217 it.o
- .debug_macro   0x00025df3      0x1b5 it.o
- .debug_macro   0x00025fa8      0x2db it.o
- .debug_macro   0x00026283       0x8d it.o
- .debug_macro   0x00026310      0x293 it.o
- .debug_macro   0x000265a3       0xba it.o
- .debug_macro   0x0002665d       0x9e it.o
- .debug_macro   0x000266fb      0x2d4 it.o
- .debug_macro   0x000269cf      0x313 it.o
- .debug_macro   0x00026ce2      0x22c it.o
- .debug_macro   0x00026f0e       0x34 it.o
- .debug_macro   0x00026f42       0xa5 it.o
- .debug_macro   0x00026fe7      0x34e it.o
- .debug_macro   0x00027335       0x1c it.o
- .debug_macro   0x00027351      0x1ed it.o
- .debug_macro   0x0002753e      0x1f7 it.o
- .debug_macro   0x00027735      0x126 it.o
- .debug_macro   0x0002785b       0x28 it.o
- .debug_macro   0x00027883      0x667 main.o
- .debug_macro   0x00027eea      0x666 peripheral.o
+.debug_macro    0x00000000    0x28562
+ .debug_macro   0x00000000      0x66c it.o
+ .debug_macro   0x0000066c      0xaf0 it.o
+ .debug_macro   0x0000115c       0x22 it.o
+ .debug_macro   0x0000117e       0x60 it.o
+ .debug_macro   0x000011de       0x2a it.o
+ .debug_macro   0x00001208       0x94 it.o
+ .debug_macro   0x0000129c       0x3c it.o
+ .debug_macro   0x000012d8       0x34 it.o
+ .debug_macro   0x0000130c       0x16 it.o
+ .debug_macro   0x00001322       0x57 it.o
+ .debug_macro   0x00001379       0x9e it.o
+ .debug_macro   0x00001417      0x364 it.o
+ .debug_macro   0x0000177b      0x127 it.o
+ .debug_macro   0x000018a2       0x10 it.o
+ .debug_macro   0x000018b2       0x16 it.o
+ .debug_macro   0x000018c8       0x58 it.o
+ .debug_macro   0x00001920       0x34 it.o
+ .debug_macro   0x00001954       0x10 it.o
+ .debug_macro   0x00001964       0x52 it.o
+ .debug_macro   0x000019b6      0x1de it.o
+ .debug_macro   0x00001b94       0x16 it.o
+ .debug_macro   0x00001baa       0x16 it.o
+ .debug_macro   0x00001bc0      0x170 it.o
+ .debug_macro   0x00001d30       0x16 it.o
+ .debug_macro   0x00001d46       0x4a it.o
+ .debug_macro   0x00001d90       0x16 it.o
+ .debug_macro   0x00001da6       0x29 it.o
+ .debug_macro   0x00001dcf      0x523 it.o
+ .debug_macro   0x000022f2       0x16 it.o
+ .debug_macro   0x00002308       0x16 it.o
+ .debug_macro   0x0000231e       0x10 it.o
+ .debug_macro   0x0000232e       0x6a it.o
+ .debug_macro   0x00002398       0x1c it.o
+ .debug_macro   0x000023b4       0x52 it.o
+ .debug_macro   0x00002406       0x22 it.o
+ .debug_macro   0x00002428       0x10 it.o
+ .debug_macro   0x00002438       0x52 it.o
+ .debug_macro   0x0000248a       0xc1 it.o
+ .debug_macro   0x0000254b       0x1c it.o
+ .debug_macro   0x00002567       0x3d it.o
+ .debug_macro   0x000025a4      0x52f it.o
+ .debug_macro   0x00002ad3      0x19b it.o
+ .debug_macro   0x00002c6e      0x11f it.o
+ .debug_macro   0x00002d8d      0x24c it.o
+ .debug_macro   0x00002fd9       0x16 it.o
+ .debug_macro   0x00002fef       0x10 it.o
+ .debug_macro   0x00002fff       0x47 it.o
+ .debug_macro   0x00003046      0x134 it.o
+ .debug_macro   0x0000317a       0x10 it.o
+ .debug_macro   0x0000318a      0x190 it.o
+ .debug_macro   0x0000331a       0x16 it.o
+ .debug_macro   0x00003330      0x3b5 it.o
+ .debug_macro   0x000036e5       0x2e it.o
+ .debug_macro   0x00003713       0x28 it.o
+ .debug_macro   0x0000373b       0x1c it.o
+ .debug_macro   0x00003757       0x22 it.o
+ .debug_macro   0x00003779       0xfb it.o
+ .debug_macro   0x00003874     0x1011 it.o
+ .debug_macro   0x00004885      0x11f it.o
+ .debug_macro   0x000049a4    0x16749 it.o
+ .debug_macro   0x0001b0ed       0x6d it.o
+ .debug_macro   0x0001b15a     0x369a it.o
+ .debug_macro   0x0001e7f4       0x56 it.o
+ .debug_macro   0x0001e84a      0xca5 it.o
+ .debug_macro   0x0001f4ef      0x9e9 it.o
+ .debug_macro   0x0001fed8      0x115 it.o
+ .debug_macro   0x0001ffed      0x1a0 it.o
+ .debug_macro   0x0002018d       0xa5 it.o
+ .debug_macro   0x00020232      0x16d it.o
+ .debug_macro   0x0002039f      0x287 it.o
+ .debug_macro   0x00020626       0x5f it.o
+ .debug_macro   0x00020685      0x236 it.o
+ .debug_macro   0x000208bb      0xb5b it.o
+ .debug_macro   0x00021416      0x38b it.o
+ .debug_macro   0x000217a1      0x17d it.o
+ .debug_macro   0x0002191e       0xf9 it.o
+ .debug_macro   0x00021a17      0x40f it.o
+ .debug_macro   0x00021e26       0x22 it.o
+ .debug_macro   0x00021e48      0x122 it.o
+ .debug_macro   0x00021f6a       0xa6 it.o
+ .debug_macro   0x00022010       0x7b it.o
+ .debug_macro   0x0002208b      0x1d2 it.o
+ .debug_macro   0x0002225d      0x132 it.o
+ .debug_macro   0x0002238f      0x29c it.o
+ .debug_macro   0x0002262b       0x2e it.o
+ .debug_macro   0x00022659      0x51d it.o
+ .debug_macro   0x00022b76       0x88 it.o
+ .debug_macro   0x00022bfe       0xe3 it.o
+ .debug_macro   0x00022ce1       0x11 it.o
+ .debug_macro   0x00022cf2      0x1b5 it.o
+ .debug_macro   0x00022ea7       0x22 it.o
+ .debug_macro   0x00022ec9       0xd6 it.o
+ .debug_macro   0x00022f9f      0x279 it.o
+ .debug_macro   0x00023218      0x1b5 it.o
+ .debug_macro   0x000233cd       0x4a it.o
+ .debug_macro   0x00023417       0x78 it.o
+ .debug_macro   0x0002348f      0x127 it.o
+ .debug_macro   0x000235b6       0xe8 it.o
+ .debug_macro   0x0002369e       0x89 it.o
+ .debug_macro   0x00023727      0x30c it.o
+ .debug_macro   0x00023a33      0x44b it.o
+ .debug_macro   0x00023e7e       0xeb it.o
+ .debug_macro   0x00023f69      0x383 it.o
+ .debug_macro   0x000242ec       0x28 it.o
+ .debug_macro   0x00024314       0xc8 it.o
+ .debug_macro   0x000243dc      0x822 it.o
+ .debug_macro   0x00024bfe      0x1d5 it.o
+ .debug_macro   0x00024dd3      0x225 it.o
+ .debug_macro   0x00024ff8      0x8ed it.o
+ .debug_macro   0x000258e5       0x53 it.o
+ .debug_macro   0x00025938      0x2aa it.o
+ .debug_macro   0x00025be2      0x217 it.o
+ .debug_macro   0x00025df9      0x1b5 it.o
+ .debug_macro   0x00025fae      0x2db it.o
+ .debug_macro   0x00026289       0x8d it.o
+ .debug_macro   0x00026316      0x293 it.o
+ .debug_macro   0x000265a9       0xba it.o
+ .debug_macro   0x00026663       0x9e it.o
+ .debug_macro   0x00026701      0x2d4 it.o
+ .debug_macro   0x000269d5      0x313 it.o
+ .debug_macro   0x00026ce8      0x22c it.o
+ .debug_macro   0x00026f14       0x34 it.o
+ .debug_macro   0x00026f48       0xa5 it.o
+ .debug_macro   0x00026fed      0x34e it.o
+ .debug_macro   0x0002733b       0x1c it.o
+ .debug_macro   0x00027357      0x1ed it.o
+ .debug_macro   0x00027544      0x1f7 it.o
+ .debug_macro   0x0002773b      0x126 it.o
+ .debug_macro   0x00027861       0x28 it.o
+ .debug_macro   0x00027889      0x66d main.o
+ .debug_macro   0x00027ef6      0x66c peripheral.o
 
 .debug_line_str
                 0x00000000      0x154

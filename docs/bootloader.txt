@@ -25,7 +25,7 @@ STM32 microcontrollers come with a built-in bootloader:
 + Its main function is to download a new application binary onto the
   main flash memory via a serial peripheral like USART, USB, or so on.
 
-In bare-metal/RTOD application, the bootloader simply jumps to the 
+In bare-metal/RTOS application, the bootloader simply jumps to the 
 application's reset handler. The critical step is ensuring the 
 application's 'interrupt vector table' is correctly relocated.
 
@@ -118,8 +118,6 @@ before jumping, the application should run correctly. Some startup
 files use a VECT_TAB_OFFSET macro that you also need to set to match
 your application's offset.
 
----------------------------------------------------------------------
-
 After a reset, the Flash is proctected against accidental writes, and
 the LOCK bit in the FLASH_CR is set to 1. Attempts to modify the 
 Flash while locked will be ignored.
@@ -128,34 +126,6 @@ Once your erase and program operations are complete, it is critical
 that you lock the Flash again to protect your firmware from corruption.
 
 HAL_FLASH_Unlock/Lock() can be used.
-
-To erase the sectors:
-
-	FLASH_EraseInitTypeDef eraseInit;
-	uint32_t error = 0;
-
-	eraseInit.TypeErase = FLASH_TYPEERASE_SECTORS;
-	eraseInit.Sector = FLASH_SECTOR_1;
-	eraseInit.NbSectors = 1;
-	eraseInit.VoltageRange = FLASH_VOLTAGE_RANGE_3; /* 2.7V - 3.3V */
-
-	if (HAL_FLASHEx_Erase(&erase, &error) != HAL_OK)
-	{
-		/* ... */
-	}
-
-Above code block handles the entire erasing sequence.
-
-After erasing, you can program the Flash. Below code block can be used:
-
-	uint32_t data = 0xDEADBELF;
-	uint32_t address = 0x0800 4000; /* application address */
-
-	if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_BYTE, address, data) !=
-		HAL_OK)
-	{
-		/* ... */
-	}
 
 Specifically, Cortex-M CPU needs two things to be correctly initialized
 before it executes a single instruction from the application.

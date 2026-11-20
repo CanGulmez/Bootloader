@@ -67,12 +67,12 @@ void uploader(const char *channel, char *binary)
 	   just raw machine bytes instead of full program metadata. */
 	dot = strrchr(binary, '.');
 	if (dot == nullptr ||  strcmp(dot, ".bin") != 0)
-		user_error("The binary shoud be ended up '.bin'");
+		user_error("(uploader) The binary shoud be ended up '.bin'.");
 
 	/* Get the size of the binary. */
 	if (stat(binary, &st) == -1)
 		syscall_error();
-	printf("The size of '%s' is %ld bytes\n", binary, st.st_size);
+	printf("(uploader) The size of '%s' is %ld bytes.\n", binary, st.st_size);
 
 	/* Read the raw binary contents from the binary file. */
 	while ((numRead = read(bfd, chunk, CHUNK_SIZE)) > 0)
@@ -84,12 +84,12 @@ void uploader(const char *channel, char *binary)
 
 		/* Also count the total written bytes. */
 		sent += (size_t)numWritten;
-		printf("Written %ld of %ld bytes\n", sent, st.st_size);
+		printf("(uploader) Written %ld of %ld bytes...\n", sent, st.st_size);
 
 		/* Give some time... */
 		sleep(1);
 	}
-	printf("Upload completed!\n");
+	printf("(uploader) Upload completed!\n");
 
 	/* Close the streams. */
 	if (close(cfd) == -1)

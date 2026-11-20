@@ -70,7 +70,7 @@ void write_flash(uint32_t address, uint8_t *data, uint32_t size)
 
 void jump_to_app(void)
 {
-	uint32_t i, msp, reset_handler;
+	uint32_t msp, reset_handler;
 
 	/* Get the MSP (Main Stack Pointer) and reset handler from the 
 	   first and second words of vector table. */

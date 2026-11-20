@@ -1,6 +1,6 @@
 mach create
 machine LoadPlatformDescription @./renode/stm32f4.repl
-sysbus LoadELF @./bin/firmware.elf
+sysbus LoadELF @./bin/bl.elf
 showAnalyzer sysbus.usart2
 machine StartGdbServer 3333
 start

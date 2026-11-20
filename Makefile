@@ -1,4 +1,4 @@
-# Bootloader for STM32F446REX
+# Bootloader Build Recipies for STM32F446RE
 
 # Required toolchain and other programs
 CC				:= arm-none-eabi-gcc
@@ -79,11 +79,11 @@ APP_LDFLAGS		:= $(CORTEX_FLAGS) -T $(APP_LINKER) \
 					--specs=nano.specs --specs=nosys.specs \
 					-Wl,--start-group -lc -lm -Wl,--end-group
 
-.PHONY: bl-bin bl-lib app-bin app-lib
+.PHONY: bl-bin bl-lib app-bin app-lib uploader
 
 # Build recipe for the bootloader library.
 bl-lib:
-	@echo "--> Compiling the bootloader library sources"
+	@echo "\n--> Compiling the bootloader library sources"
 	$(CC) $(AFLAGS) -c $(STARTUP_CODE)
 	$(CC) $(BL_CFLAGS) -c $(BL_DRIVER_SRCS)
 
@@ -95,7 +95,7 @@ bl-lib:
 
 # Build recipe for the bootloader program
 bl-bin:
-	@echo "--> Compiling the bootloader program sources"
+	@echo "\n--> Compiling the bootloader program sources"
 	$(CC) -g3 $(BL_CFLAGS) -c $(BL_SRCS)
 
 	@echo "\n--> Linking the bootloader program objects"
@@ -115,7 +115,7 @@ bl-bin:
 
 # Build recipe for the application library
 app-lib:
-	@echo "--> Compiling the application library sources"
+	@echo "\n--> Compiling the application library sources"
 	$(CC) $(AFLAGS) -c $(STARTUP_CODE)
 	$(CC) $(APP_CFLAGS) -c $(APP_DRIVER_SRCS)
 
@@ -127,7 +127,7 @@ app-lib:
 
 # Build recipe for the application program
 app-bin:
-	@echo "--> Compiling the application program sources"
+	@echo "\n--> Compiling the application program sources"
 	$(CC) -g3 $(APP_CFLAGS) -c $(APP_SRCS)
 
 	@echo "\n--> Linking the application program objects"
@@ -144,3 +144,8 @@ app-bin:
 
 	@echo "\n--> The application program format"
 	@$(FILE) $(APP_ELF)
+
+# Build receipe for the uploader program
+uploader:
+	@echo "\n--> Compiling the uploader program"
+	gcc -Os -std=gnu2x -march=native $(WARN_FLAGS) utility/*.c -o bin/uploader

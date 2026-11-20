@@ -1,6 +1,6 @@
 /**
  ******************************************************************************
- * @file 	main.c
+ * @file 	main.h
  * @author 	Can Gulmez
  * @brief 	The main definitions of the bootloader
  * 
@@ -41,7 +41,8 @@ extern "C" {
 
 #define BUF_SIZE		256
 #define APP_ADDRESS		0x08004000UL
-#define TIMEOUT			10000
+#define APP_CHUNK		1024	/* bytes */
+#define TIMEOUT			10000	/* ms */
 
 #define STATUS(status) 	((status == HAL_ERROR) ? "error" :		\
 						 (status == HAL_BUSY) ? "busy" :		\

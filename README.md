@@ -1,1 +1,3 @@
-# Bootloader for STM32F446REX
+# Bootloader for STM32F446RE
+
+This repo demonstrates 

@@ -1,6 +1,6 @@
 /**
  ******************************************************************************
- * @file 	main.c
+ * @file 	bootloader.c
  * @author 	Can Gulmez
  * @brief 	The core implementation of the bootloader
  * 
@@ -72,18 +72,17 @@ void jump_to_app(void)
 {
 	uint32_t i, msp, reset_handler;
 
-	/* Get the MSP (Main Stack Pointer) and reset handler from 
-	   the first and second words of vector table. */
+	/* Get the MSP (Main Stack Pointer) and reset handler from the 
+	   first and second words of vector table. */
 	msp = *(volatile uint32_t *)(APP_ADDRESS);
 	reset_handler = *(volatile uint32_t *)(APP_ADDRESS + 4UL);
 
-	/* Disable all interrupts and clear pending flags. */
-	__disable_irq();
-	for (i = 0; i < 8; i++)
-	{
-		NVIC->ICER[i] = 0xFFFFFFFFUL;
-		NVIC->ICPR[i] = 0xFFFFFFFFUL;
-	}
+	/**
+	 * NOTE: __disable_irq() can be called here to disable the all
+	 * possible interrupts (set PRIMASK by 1). But, if it is, the
+	 * application program should enable back it via __enable_irq()
+	 * in its main() or startup script file.
+	 */
 
 	/* Set the Vector Table Offset Register (VTOR) to the application's. */
 	SCB->VTOR = APP_ADDRESS;

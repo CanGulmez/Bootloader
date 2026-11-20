@@ -1,6 +1,26 @@
 /**
- * Main header of the firmware.
+ ******************************************************************************
+ * @file 	main.h
+ * @author 	Can Gulmez
+ * @brief 	The main definitions of the application
+ * 
+ ******************************************************************************
+ * @attention
+ * 
+ * Copyright (c) 2026 Can Gulmez.
+ * All rights reserved.
+ * 
+ * This software is licensed under the MIT License.
+ * 
+ ******************************************************************************
  */
+
+#ifndef MAIN_H
+#define MAIN_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /* Libraries */
 
@@ -97,3 +117,9 @@ int _kill(pid_t, int);
 
 void config_osc_clk(void);
 void config_debug(void);
+
+#ifdef __cplusplus
+}
+#endif 
+
+#endif /* MAIN_H */

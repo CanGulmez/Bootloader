@@ -1,8 +1,8 @@
 /**
  ******************************************************************************
- * @file 	main.c
+ * @file 	it.c
  * @author 	Can Gulmez
- * @brief 	The interrupt requests of the bootloader
+ * @brief 	The interrupt service routines of the bootloader
  * 
  ******************************************************************************
  * @attention

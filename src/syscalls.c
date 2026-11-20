@@ -1,8 +1,8 @@
 /**
  ******************************************************************************
- * @file 	main.c
+ * @file 	syscalls.c
  * @author 	Can Gulmez
- * @brief 	The dumpy syscall implementations of the bootloader
+ * @brief 	The dumpy syscalls of the bootloader
  * 
  ******************************************************************************
  * @attention

@@ -20,8 +20,10 @@
 int main(void)
 {
 	uint32_t appAddr = APP_ADDRESS;
-	uint8_t chunk[BUF_SIZE] = {0};
+	uint8_t chunk[APP_CHUNK] = {0};
 	HAL_StatusTypeDef status;
+	bool succedded = false;
+	uint32_t totalByte = 0;
 
 	/* Intialize the HAL driver. */
 	HAL_Init();
@@ -30,13 +32,13 @@ int main(void)
 	config_osc_clk();
 	config_debug();
 
-	println("\n(bl) Bootloader is started.");
-	println("(bl) It is put in the sector 0 of Flash memory.");
+	println("\n(bl) Bootloader is started...");
+	println("(bl) Sector 0 of Flash memory is reserved.");
 
 	erase_sectors();
 	println("(bl) Erased the sector 1-7 of Flash memory.");
 
-	println("(bl) Waiting for the application (.bin) over UART...");
+	println("(bl) Waiting for the binary (%d ms timeout)...", TIMEOUT);
 	while (true)
 	{
 		/* Receive the application firmware in 256 bytes chunks. */
@@ -44,19 +46,30 @@ int main(void)
 		if (status == HAL_OK)
 		{
 			/* Write the application firmware in order. */
-			print("(bl) Writing Flash memory with application (%ld - ", appAddr);
 			write_flash(appAddr, chunk, sizeof(chunk));
+			/* Update the memory address for the next chunk. */
 			appAddr += sizeof(chunk);
-			println("%ld", appAddr);
+			succedded = true;
+			totalByte += sizeof(chunk);
 		}
-		else
+		else if (status == HAL_TIMEOUT)
 		{
-			panic("(bl) Couldn't get the application completely");
+			break;
 		}
 	}
-	println("(bl) Writing completed the application");
-	println("(bl) Jumping into the application entry point...");
-	jump_to_app();
+	if (succedded)
+	{
+		println("(bl) Completed the writing into Flash memory.");
+		println("(bl) Total %ld bytes written (0x0%lx - 0x0%lx).",
+			appAddr - APP_ADDRESS, APP_ADDRESS, appAddr);
+		println("(bl) Jumping into the application entry point...");
+		/* Jump the application entry point (its main). */
+		jump_to_app();
+	}
+	else
+	{
+		panic("(bl) Coudln't completed the writing process.");
+	}
 
 	return EXIT_SUCCESS;
 }

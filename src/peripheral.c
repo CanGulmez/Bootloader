@@ -1,8 +1,8 @@
 /**
  ******************************************************************************
- * @file 	main.c
+ * @file 	peripheral.c
  * @author 	Can Gulmez
- * @brief 	The peripheral implementation of the bootloader
+ * @brief 	The peripheral config of the bootloader
  * 
  ******************************************************************************
  * @attention
@@ -54,7 +54,7 @@ void config_debug(void)
 	husart2.Instance = USART2;
 	husart2.Init.BaudRate = 115200;
 	husart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-	husart2.Init.Mode = UART_MODE_TX;
+	husart2.Init.Mode = UART_MODE_TX_RX;
 	husart2.Init.OverSampling = UART_OVERSAMPLING_16;
 	husart2.Init.Parity = UART_PARITY_NONE;
 	husart2.Init.StopBits = UART_STOPBITS_1;

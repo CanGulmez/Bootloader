@@ -84,7 +84,7 @@ void uploader(const char *channel, char *binary)
 
 		/* Also count the total written bytes. */
 		sent += (size_t)numWritten;
-		printf("(uploader) Written %ld of %ld bytes...\n", sent, st.st_size);
+		printf("(uploader) Sent %ld of %ld bytes...\n", sent, st.st_size);
 
 		/* Give some time... */
 		sleep(1);

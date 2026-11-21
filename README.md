@@ -1,4 +1,4 @@
-# Bootloader for STM32F446RE
+# Bootloader for STM32F4x based Microcontrollers
 
 This repo demonstrates that how to implement a bootloader for STM32F446RE, an example 
 application that will be loaded by the bootloader and a uploader program to upload the

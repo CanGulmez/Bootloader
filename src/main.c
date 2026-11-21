@@ -43,33 +43,25 @@ int main(void)
 	{
 		/* Receive the application firmware in 256 bytes chunks. */
 		status = HAL_UART_Receive(&husart2, chunk, sizeof(chunk), TIMEOUT);
-		if (status == HAL_OK)
-		{
-			/* Write the application firmware in order. */
-			write_flash(appAddr, chunk, sizeof(chunk));
-			/* Update the memory address for the next chunk. */
-			appAddr += sizeof(chunk);
-			succedded = true;
-			totalByte += sizeof(chunk);
-		}
-		else if (status == HAL_TIMEOUT)
-		{
+		if (status != HAL_OK)
 			break;
-		}
+		
+		/* Write the application firmware in order. */
+		write_flash(appAddr, chunk, sizeof(chunk));
+		/* Update the memory address for the next chunk. */
+		appAddr += sizeof(chunk);
+		succedded = true;
+		totalByte += sizeof(chunk);
 	}
-	if (succedded)
-	{
-		println("(bl) Completed the writing into Flash memory.");
-		println("(bl) Total %ld bytes written (0x0%lx - 0x0%lx).",
-			appAddr - APP_ADDRESS, APP_ADDRESS, appAddr);
-		println("(bl) Jumping into the application entry point...");
-		/* Jump the application entry point (its main). */
-		jump_to_app();
-	}
-	else
-	{
+	if (!succedded)
 		panic("(bl) Coudln't completed the writing process.");
-	}
+
+	println("(bl) Completed the writing into Flash memory.");
+	println("(bl) Total %ld bytes written (0x0%lx - 0x0%lx).",
+		appAddr - APP_ADDRESS, APP_ADDRESS, appAddr);
+	println("(bl) Jumping into the application entry point...");
+	/* Jump the application entry point (its main). */
+	jump_to_app();
 
 	return EXIT_SUCCESS;
 }
